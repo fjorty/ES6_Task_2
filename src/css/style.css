@@ -1,4 +1,4 @@
-.main {
+.main-wrapper {
     padding: 10px;
     background-color: #f9f9f9;
     min-height: 100vh;
@@ -9,6 +9,9 @@
 .search-block {
     width: 50%;
     margin: auto;
+}
+.search-input {
+    border-radius: 15px;
 }
 .picture {
     max-width: 250px;
@@ -29,10 +32,36 @@ img {
 .movie {
     padding: 10px;
     border: 0.1px solid #dddddd;
+    transition: all 0.3s ease;
 }
 .movie:nth-child(odd) {
     background-color: #fff;
 }
+.movie-hover:hover {
+    background-color: #BDBDBD;
+}
 .hidden {
     display: none;
+}
+.movie-link,
+.movie-link:hover,
+.filters a,
+.filters a:hover {
+    text-decoration: none;
+    color: #333;
+}
+.back {
+    cursor: pointer;
+}
+.filters {
+    margin-top: 5px;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+    cursor: pointer;
+}
+.filters a:hover,
+.back:hover {
+    font-weight: bold;
 }

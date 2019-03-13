@@ -6,6 +6,7 @@ export default class MovieList {
 	}
 
 	drawToDom(selector) {
+		this.selector = selector;
 		this.clearList(selector);
 		selector.appendChild(this.fragment);
 		selector.classList.remove('hidden');
@@ -16,7 +17,7 @@ export default class MovieList {
 
 		data.forEach(data => {
 			const article = document.createElement('article');
-			article.classList.add('movie', 'col-md-4');
+			article.classList.add('movie', 'movie-hover', 'col-md-4');
 			article.innerHTML = movie(data); 
 			this.fragment.appendChild(article);
 		});
@@ -105,5 +106,9 @@ export default class MovieList {
 
 		this.renderMovies(data);
 		this.drawToDom(document.querySelector('.movies'));
+	}
+
+	hide() {
+		this.selector.style.display = 'none';
 	}
 }
