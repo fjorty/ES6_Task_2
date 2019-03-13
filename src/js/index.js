@@ -4,19 +4,34 @@ import moviesService from './movies-service';
 
 const input = document.querySelector('.search-input');
 const movieList = document.querySelector('.movies');
+const list = new MovieList();
+const filters = document.querySelector('.filters');
 
 input.addEventListener('input', e => {
 	const searchText = e.target.value;
 
 	if(!searchText) {
-		movieList.innerHTML = '';
+		list.clearList(movieList);
 		return;
 	}
 
 	moviesService.getVideoByText(searchText)
-		.then(result => {
-			const list = new MovieList(result);
-
+		.then(data => {
+			list.init(data);
+			list.renderMovies(data.results);
 			list.drawToDom(movieList);
 		});
+});
+
+filters.addEventListener('click', (e) => {
+	e.preventDefault();
+	
+	const target = e.target;
+	const dataAttr = target.getAttribute('data-filter');
+
+	if(!dataAttr) {
+		return;
+	}
+	
+	list.sort(dataAttr);
 });

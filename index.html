@@ -9,17 +9,21 @@
 	<title>Movie</title>
 </head>
 <body>
-	<div class="row">
+	<div class="main">
 		<div class="col-md-12">
 			<h1 class="main-title">Find the movie</h1>
 			<div class="form-group search-block">
 				<input type="text" class="search-input form-control">
+				<ul class="filters">
+					<li><a data-filter="raiting-max" href="">Raiting max</a></li>
+					<li><a data-filter="raiting-min" href="">Raiting min</a></li>
+					<li><a data-filter="date-new" href="">New</a></li>
+					<li><a data-filter="date-old" href="">Old</a></li>
+				</ul>
 			</div>
 		</div>
-
-		<div class="container movies">
-			
-		</div>
+		
+		<div class="container-fluid movies row hidden"></div>
 	</div>
 	<script src="dist/main.js"></script>
 </body>
